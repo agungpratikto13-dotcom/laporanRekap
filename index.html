@@ -671,9 +671,10 @@ button {
 
     <td>
         <input id="trxDepo"
-               class="angka"
-               value="39049"
-               oninput="hitungTotalTrx()">
+       class="angka"
+       value=""
+       oninput="hitungTotalTrx()">
+
     </td>
 </tr>
 
@@ -683,9 +684,10 @@ button {
 
     <td>
         <input id="trxWd"
-               class="angka"
-               value="6596"
-               oninput="hitungTotalTrx()">
+       class="angka"
+       value=""
+       oninput="hitungTotalTrx()">
+
     </td>
 </tr>
 
@@ -693,13 +695,15 @@ button {
 <tr class="total-trx">
     <td>TOTAL TRX</td>
 
-    <input id="totalTrx"
+    <td>
+        <input id="totalTrx"
        class="angka"
        value=""
        readonly>
 
     </td>
 </tr>
+
 
 </tbody>
 </table>
@@ -744,10 +748,11 @@ button {
     <td>TOTAL CASHBACK</td>
 
     <td>
-        <input class="angka"
-               value="16543103"
-               oninput="formatAngka(this)">
-    </td>
+    <input class="angka"
+           value=""
+           oninput="formatAngka(this)">
+</td>
+
 </tr>
 
 </tbody>
@@ -817,29 +822,25 @@ function formatAngka(input) {
 
 function hitungTotalTrx() {
 
-    let depo =
-        angkaBersih(
-            document.getElementById('trxDepo').value
-        );
+    let depo = angkaBersih(
+        document.getElementById('trxDepo').value
+    );
 
-    let wd =
-        angkaBersih(
-            document.getElementById('trxWd').value
-        );
-
+    let wd = angkaBersih(
+        document.getElementById('trxWd').value
+    );
 
     depo = Number(depo || 0);
-
     wd = Number(wd || 0);
-
 
     let total = depo + wd;
 
-
     document.getElementById('totalTrx').value =
-        total.toLocaleString('en-US');
-
+        total === 0
+            ? ''
+            : total.toLocaleString('en-US');
 }
+
 
 
 /* =====================================================
