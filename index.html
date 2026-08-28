@@ -1,108 +1,77 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Laporan Harian</title>
 
-
 <style>
-
-/* =====================================================
-   GLOBAL
-===================================================== */
 
 * {
     box-sizing: border-box;
 }
 
-
-/* =====================================================
-   BACKGROUND
-===================================================== */
-
 body {
-
     margin: 0;
-
     padding: 30px 15px;
 
-    font-family:
-        Arial,
-        "Segoe UI",
-        sans-serif;
+    font-family: Arial, "Segoe UI", sans-serif;
 
     color: #e5e7eb;
 
     min-height: 100vh;
 
     background:
-
         radial-gradient(
             circle at 10% 20%,
             rgba(59, 130, 246, 0.30),
             transparent 30%
         ),
-
         radial-gradient(
             circle at 90% 10%,
             rgba(139, 92, 246, 0.28),
             transparent 30%
         ),
-
         radial-gradient(
             circle at 50% 90%,
             rgba(6, 182, 212, 0.20),
             transparent 35%
         ),
-
         #07111f;
 }
 
 
-/* =====================================================
+/* ================================
    CONTAINER
-===================================================== */
+================================ */
 
 .container {
-
     max-width: 1050px;
 
     margin: auto;
 
     padding: 30px;
 
-    background:
-        rgba(15, 27, 45, 0.90);
+    background: rgba(15, 27, 45, 0.90);
 
-    border:
-        1px solid
-        rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.10);
 
     border-radius: 24px;
 
     box-shadow:
-        0 25px 70px
-        rgba(0, 0, 0, 0.50);
+        0 25px 70px rgba(0, 0, 0, 0.50);
 
-    backdrop-filter:
-        blur(18px);
+    backdrop-filter: blur(18px);
 }
 
 
-/* =====================================================
+/* ================================
    JUDUL
-===================================================== */
+================================ */
 
 h1 {
-
-    margin:
-        0 0 28px;
+    margin: 0 0 28px;
 
     text-align: center;
 
@@ -115,17 +84,15 @@ h1 {
     color: #ffffff;
 
     text-shadow:
-        0 3px 15px
-        rgba(59, 130, 246, 0.5);
+        0 3px 15px rgba(59, 130, 246, 0.5);
 }
 
 
-/* =====================================================
+/* ================================
    JUDUL SECTION
-===================================================== */
+================================ */
 
 h2 {
-
     margin-top: 30px;
 
     margin-bottom: 12px;
@@ -141,7 +108,6 @@ h2 {
     border-radius: 12px;
 
     background:
-
         linear-gradient(
             135deg,
             #2563eb,
@@ -149,17 +115,15 @@ h2 {
         );
 
     box-shadow:
-        0 8px 25px
-        rgba(37, 99, 235, 0.25);
+        0 8px 25px rgba(37, 99, 235, 0.25);
 }
 
 
-/* =====================================================
+/* ================================
    TABLE
-===================================================== */
+================================ */
 
 table {
-
     width: 100%;
 
     border-collapse: separate;
@@ -171,26 +135,22 @@ table {
     border-radius: 14px;
 
     border:
-        1px solid
-        rgba(255, 255, 255, 0.10);
+        1px solid rgba(255, 255, 255, 0.10);
 
     background:
         rgba(15, 23, 42, 0.75);
 
     box-shadow:
-        0 10px 30px
-        rgba(0, 0, 0, 0.20);
+        0 10px 30px rgba(0, 0, 0, 0.20);
 }
 
 
-/* =====================================================
+/* ================================
    HEADER TABLE
-===================================================== */
+================================ */
 
 th {
-
-    padding:
-        13px 12px;
+    padding: 13px 12px;
 
     color: #dbeafe;
 
@@ -205,54 +165,45 @@ th {
 }
 
 
-/* =====================================================
+/* ================================
    CELL
-===================================================== */
+================================ */
 
 td {
-
-    padding:
-        11px 12px;
+    padding: 11px 12px;
 
     color: #e2e8f0;
 
     border-top:
-        1px solid
-        rgba(255, 255, 255, 0.07);
+        1px solid rgba(255, 255, 255, 0.07);
 
     background:
         rgba(15, 23, 42, 0.55);
 }
 
 
-/* =====================================================
+/* ================================
    HOVER TABLE
-===================================================== */
+================================ */
 
 tbody tr {
-
-    transition:
-        0.2s ease;
+    transition: 0.2s ease;
 }
 
-
 tbody tr:hover td {
-
     background:
         rgba(59, 130, 246, 0.12);
 }
 
 
-/* =====================================================
+/* ================================
    INPUT
-===================================================== */
+================================ */
 
 td input {
-
     width: 100%;
 
-    padding:
-        7px 8px;
+    padding: 7px 8px;
 
     border: none;
 
@@ -270,7 +221,6 @@ td input {
 
 
 td input:focus {
-
     background:
         rgba(59, 130, 246, 0.15);
 
@@ -280,12 +230,11 @@ td input:focus {
 }
 
 
-/* =====================================================
+/* ================================
    ANGKA
-===================================================== */
+================================ */
 
 .angka {
-
     text-align: right;
 
     font-weight: 600;
@@ -295,14 +244,12 @@ td input:focus {
 }
 
 
-/* =====================================================
+/* ================================
    TOTAL TRX
-===================================================== */
+================================ */
 
 .total-trx td {
-
     background:
-
         linear-gradient(
             90deg,
             rgba(16, 185, 129, 0.20),
@@ -316,7 +263,6 @@ td input:focus {
 
 
 .total-trx input {
-
     color: #86efac;
 
     font-size: 17px;
@@ -325,12 +271,11 @@ td input:focus {
 }
 
 
-/* =====================================================
+/* ================================
    BUTTON
-===================================================== */
+================================ */
 
 .buttons {
-
     display: flex;
 
     gap: 12px;
@@ -340,11 +285,9 @@ td input:focus {
 
 
 button {
-
     border: none;
 
-    padding:
-        13px 20px;
+    padding: 13px 20px;
 
     border-radius: 10px;
 
@@ -361,14 +304,12 @@ button {
 }
 
 
-/* =====================================================
-   COPY BUTTON
-===================================================== */
+/* ================================
+   COPY
+================================ */
 
 .copy {
-
     background:
-
         linear-gradient(
             135deg,
             #10b981,
@@ -382,7 +323,6 @@ button {
 
 
 .copy:hover {
-
     transform:
         translateY(-2px);
 
@@ -392,14 +332,12 @@ button {
 }
 
 
-/* =====================================================
-   RESET BUTTON
-===================================================== */
+/* ================================
+   RESET
+================================ */
 
 .reset {
-
     background:
-
         linear-gradient(
             135deg,
             #ef4444,
@@ -413,7 +351,6 @@ button {
 
 
 .reset:hover {
-
     transform:
         translateY(-2px);
 
@@ -423,26 +360,20 @@ button {
 }
 
 
-/* =====================================================
+/* ================================
    SCROLLBAR
-===================================================== */
+================================ */
 
 ::-webkit-scrollbar {
-
     width: 8px;
 }
 
-
 ::-webkit-scrollbar-track {
-
     background: #07111f;
 }
 
-
 ::-webkit-scrollbar-thumb {
-
     background:
-
         linear-gradient(
             #2563eb,
             #7c3aed
@@ -452,58 +383,43 @@ button {
 }
 
 
-/* =====================================================
+/* ================================
    MOBILE
-===================================================== */
+================================ */
 
 @media(max-width: 700px) {
 
     body {
-
         padding: 10px;
     }
 
-
     .container {
-
         padding: 15px;
 
         border-radius: 18px;
     }
 
-
     h1 {
-
         font-size: 25px;
     }
 
-
     h2 {
-
         font-size: 14px;
     }
 
-
     table {
-
         min-width: 650px;
     }
 
-
     .container {
-
         overflow-x: auto;
     }
 
-
     .buttons {
-
         flex-direction: column;
     }
 
-
     button {
-
         width: 100%;
     }
 
@@ -516,79 +432,57 @@ button {
 
 <body>
 
-
 <div class="container">
-
 
 <h1>LAPORAN HARIAN</h1>
 
 
 <!-- =====================================================
-     TABEL 1 : PGA
+     TABEL PGA
 ===================================================== -->
 
 <h2>PGA</h2>
-
 
 <table id="tabelPGA">
 
 <thead>
 
 <tr>
-
     <th>JENIS</th>
-
     <th>TANGGAL</th>
-
     <th>TOTAL</th>
-
     <th>TRX</th>
-
 </tr>
 
 </thead>
 
-
 <tbody>
 
-
 <tr>
 
-    <td>
-        DEPO PGA
-    </td>
-
+    <td>DEPO PGA</td>
 
     <td>
-
         <input
-            value="27 AGUSTUS 2026"
-            autocomplete="off">
-
+            class="tanggal"
+            autocomplete="off"
+            value="">
     </td>
 
-
     <td>
-
         <input
             class="angka"
-            value=""
             autocomplete="off"
-            inputmode="numeric"
+            value=""
             oninput="formatAngka(this)">
-
     </td>
 
-
     <td>
-
         <input
             class="angka"
-            value=""
             autocomplete="off"
-            inputmode="numeric"
+            value=""
             oninput="formatAngka(this)">
-
     </td>
 
 </tr>
@@ -596,41 +490,29 @@ button {
 
 <tr>
 
-    <td>
-        WD PGA
-    </td>
-
+    <td>WD PGA</td>
 
     <td>
-
         <input
-            value="27 AGUSTUS 2026"
-            autocomplete="off">
-
+            class="tanggal"
+            autocomplete="off"
+            value="">
     </td>
 
-
     <td>
-
         <input
             class="angka"
-            value=""
             autocomplete="off"
-            inputmode="numeric"
+            value=""
             oninput="formatAngka(this)">
-
     </td>
 
-
     <td>
-
         <input
             class="angka"
-            value=""
             autocomplete="off"
-            inputmode="numeric"
+            value=""
             oninput="formatAngka(this)">
-
     </td>
 
 </tr>
@@ -638,45 +520,32 @@ button {
 
 <tr>
 
-    <td>
-        PENCAIRAN DANA PGA
-    </td>
-
+    <td>PENCAIRAN DANA PGA</td>
 
     <td>
-
         <input
-            value="27 AGUSTUS 2026"
-            autocomplete="off">
-
+            class="tanggal"
+            autocomplete="off"
+            value="">
     </td>
 
-
     <td>
-
         <input
             class="angka"
-            value=""
             autocomplete="off"
-            inputmode="numeric"
+            value=""
             oninput="formatAngka(this)">
-
     </td>
 
-
     <td>
-
         <input
             class="angka"
-            value=""
             autocomplete="off"
-            inputmode="numeric"
+            value=""
             oninput="formatAngka(this)">
-
     </td>
 
 </tr>
-
 
 </tbody>
 
@@ -684,71 +553,51 @@ button {
 
 
 <!-- =====================================================
-     TABEL 2 : QRIS
+     TABEL QRIS
 ===================================================== -->
 
 <h2>QRIS</h2>
-
 
 <table id="tabelQRIS">
 
 <thead>
 
 <tr>
-
     <th>JENIS</th>
-
     <th>TANGGAL</th>
-
     <th>TOTAL</th>
-
     <th>TRX</th>
-
 </tr>
 
 </thead>
 
-
 <tbody>
 
-
 <tr>
 
-    <td>
-        DEPO QRIS PAYDIA (PRN)
-    </td>
-
+    <td>DEPO QRIS PAYDIA (PRN)</td>
 
     <td>
-
         <input
-            value="26 AGUSTUS 2026"
-            autocomplete="off">
-
+            class="tanggal"
+            autocomplete="off"
+            value="">
     </td>
 
-
     <td>
-
         <input
             class="angka"
-            value=""
             autocomplete="off"
-            inputmode="numeric"
+            value=""
             oninput="formatAngka(this)">
-
     </td>
 
-
     <td>
-
         <input
             class="angka"
-            value=""
             autocomplete="off"
-            inputmode="numeric"
+            value=""
             oninput="formatAngka(this)">
-
     </td>
 
 </tr>
@@ -756,45 +605,32 @@ button {
 
 <tr>
 
-    <td>
-        DEPO QRIS NETZME
-    </td>
-
+    <td>DEPO QRIS NETZME</td>
 
     <td>
-
         <input
-            value="26 AGUSTUS 2026"
-            autocomplete="off">
-
+            class="tanggal"
+            autocomplete="off"
+            value="">
     </td>
 
-
     <td>
-
         <input
             class="angka"
-            value=""
             autocomplete="off"
-            inputmode="numeric"
+            value=""
             oninput="formatAngka(this)">
-
     </td>
 
-
     <td>
-
         <input
             class="angka"
-            value=""
             autocomplete="off"
-            inputmode="numeric"
+            value=""
             oninput="formatAngka(this)">
-
     </td>
 
 </tr>
-
 
 </tbody>
 
@@ -802,206 +638,134 @@ button {
 
 
 <!-- =====================================================
-     TABEL 3 : REKAP
+     REKAP
 ===================================================== -->
 
 <h2>REKAP</h2>
-
 
 <table id="tabelRekap">
 
 <tbody>
 
-
 <tr>
+    <td>MEMBER AKTIF</td>
 
     <td>
-        MEMBER AKTIF
-    </td>
-
-
-    <td>
-
         <input
             class="angka"
-            value=""
             autocomplete="off"
-            inputmode="numeric"
+            value=""
             oninput="formatAngka(this)">
-
     </td>
-
 </tr>
 
 
 <tr>
+    <td>TURNOVER</td>
 
     <td>
-        TURNOVER
-    </td>
-
-
-    <td>
-
         <input
             class="angka"
-            value=""
             autocomplete="off"
-            inputmode="numeric"
+            value=""
             oninput="formatAngka(this)">
-
     </td>
-
 </tr>
 
 
 <tr>
+    <td>REPORT DEPO</td>
 
     <td>
-        REPORT DEPO
-    </td>
-
-
-    <td>
-
         <input
             class="angka"
-            value=""
             autocomplete="off"
-            inputmode="numeric"
+            value=""
             oninput="formatAngka(this)">
-
     </td>
-
 </tr>
 
 
 <tr>
+    <td>REPORT WD</td>
 
     <td>
-        REPORT WD
-    </td>
-
-
-    <td>
-
         <input
             class="angka"
-            value=""
             autocomplete="off"
-            inputmode="numeric"
+            value=""
             oninput="formatAngka(this)">
-
     </td>
-
 </tr>
 
 
 <tr>
+    <td>REGIS</td>
 
     <td>
-        REGIS
-    </td>
-
-
-    <td>
-
         <input
             class="angka"
-            value=""
             autocomplete="off"
-            inputmode="numeric"
+            value=""
             oninput="formatAngka(this)">
-
     </td>
-
 </tr>
 
 
 <tr>
+    <td>REG DEPO</td>
 
     <td>
-        REG DEPO
-    </td>
-
-
-    <td>
-
         <input
             class="angka"
-            value=""
             autocomplete="off"
-            inputmode="numeric"
+            value=""
             oninput="formatAngka(this)">
-
     </td>
-
 </tr>
 
 
 <tr>
+    <td>TRX DEPO</td>
 
     <td>
-        TRX DEPO
-    </td>
-
-
-    <td>
-
         <input
             id="trxDepo"
             class="angka"
-            value=""
             autocomplete="off"
-            inputmode="numeric"
-            oninput="formatAngka(this); hitungTotalTrx();">
-
+            value=""
+            oninput="hitungTotalTrx()">
     </td>
-
 </tr>
 
 
 <tr>
+    <td>TRX WD</td>
 
     <td>
-        TRX WD
-    </td>
-
-
-    <td>
-
         <input
             id="trxWd"
             class="angka"
-            value=""
             autocomplete="off"
-            inputmode="numeric"
-            oninput="formatAngka(this); hitungTotalTrx();">
-
+            value=""
+            oninput="hitungTotalTrx()">
     </td>
-
 </tr>
 
 
 <tr class="total-trx">
 
-    <td>
-        TOTAL TRX
-    </td>
-
+    <td>TOTAL TRX</td>
 
     <td>
-
         <input
             id="totalTrx"
             class="angka"
             value=""
             readonly>
-
     </td>
 
 </tr>
-
 
 </tbody>
 
@@ -1014,28 +778,20 @@ button {
 
 <h2>BONUS & CASHBACK</h2>
 
-
-<table>
+<table id="tabelBonus">
 
 <tbody>
 
-
 <tr>
 
-    <td>
-        BONUS HARIAN
-    </td>
-
+    <td>BONUS HARIAN</td>
 
     <td>
-
         <input
             class="angka"
-            value=""
             autocomplete="off"
-            inputmode="numeric"
+            value=""
             oninput="formatAngka(this)">
-
     </td>
 
 </tr>
@@ -1043,19 +799,14 @@ button {
 
 <tr>
 
-    <td>
-        CASHBACK
-    </td>
-
+    <td>CASHBACK</td>
 
     <td>
-
         <input
             type="text"
+            autocomplete="off"
             value="Cashback Live Game periode 17 AGUSTUS 2026 s/d 23 AGUSTUS 2026"
-            placeholder="Tulis keterangan cashback..."
-            autocomplete="off">
-
+            placeholder="Tulis keterangan cashback...">
     </td>
 
 </tr>
@@ -1063,24 +814,17 @@ button {
 
 <tr>
 
-    <td>
-        TOTAL CASHBACK
-    </td>
-
+    <td>TOTAL CASHBACK</td>
 
     <td>
-
         <input
             class="angka"
-            value=""
             autocomplete="off"
-            inputmode="numeric"
+            value=""
             oninput="formatAngka(this)">
-
     </td>
 
 </tr>
-
 
 </tbody>
 
@@ -1088,14 +832,14 @@ button {
 
 
 <!-- =====================================================
-     TOMBOL
+     BUTTON
 ===================================================== -->
 
 <div class="buttons">
 
-
 <button
     class="copy"
+    type="button"
     onclick="copyLaporan()">
 
     📋 COPY LAPORAN
@@ -1105,20 +849,86 @@ button {
 
 <button
     class="reset"
+    type="button"
     onclick="resetLaporan()">
 
     🔄 RESET
 
 </button>
 
-
 </div>
-
 
 </div>
 
 
 <script>
+
+/* =====================================================
+   NAMA BULAN INDONESIA
+===================================================== */
+
+const namaBulan = [
+    'JANUARI',
+    'FEBRUARI',
+    'MARET',
+    'APRIL',
+    'MEI',
+    'JUNI',
+    'JULI',
+    'AGUSTUS',
+    'SEPTEMBER',
+    'OKTOBER',
+    'NOVEMBER',
+    'DESEMBER'
+];
+
+
+/* =====================================================
+   FORMAT TANGGAL HARI INI
+   CONTOH:
+   29 AGUSTUS 2026
+===================================================== */
+
+function tanggalHariIni() {
+
+    const sekarang = new Date();
+
+    const tanggal =
+        sekarang.getDate();
+
+    const bulan =
+        namaBulan[sekarang.getMonth()];
+
+    const tahun =
+        sekarang.getFullYear();
+
+    return tanggal +
+        ' ' +
+        bulan +
+        ' ' +
+        tahun;
+}
+
+
+/* =====================================================
+   SET SEMUA TANGGAL OTOMATIS
+===================================================== */
+
+function updateTanggalOtomatis() {
+
+    const tanggal =
+        tanggalHariIni();
+
+    document
+        .querySelectorAll('.tanggal')
+        .forEach(input => {
+
+            input.value = tanggal;
+
+        });
+
+}
+
 
 /* =====================================================
    MEMBERSIHKAN ANGKA
@@ -1134,14 +944,13 @@ function angkaBersih(value) {
 
 
 /* =====================================================
-   FORMAT ANGKA DENGAN KOMA
+   FORMAT ANGKA
 ===================================================== */
 
 function formatAngka(input) {
 
     let value =
         angkaBersih(input.value);
-
 
     if (value === '') {
 
@@ -1150,7 +959,6 @@ function formatAngka(input) {
         return;
 
     }
-
 
     input.value =
         Number(value)
@@ -1184,7 +992,6 @@ function hitungTotalTrx() {
     depo =
         Number(depo || 0);
 
-
     wd =
         Number(wd || 0);
 
@@ -1212,19 +1019,21 @@ function copyLaporan() {
     let teks = '';
 
 
-    /* =================================================
+    /* ==========================================
        TANGGAL REKAP
-    ================================================= */
+    ========================================== */
 
     let tanggalRekap =
-        document.querySelector(
-            '#tabelPGA tbody tr td:nth-child(2) input'
-        ).value;
+        document
+            .querySelector(
+                '#tabelPGA tbody tr:first-child .tanggal'
+            )
+            .value;
 
 
-    /* =================================================
+    /* ==========================================
        PGA
-    ================================================= */
+    ========================================== */
 
     let pgaRows =
         document.querySelectorAll(
@@ -1305,9 +1114,9 @@ function copyLaporan() {
     });
 
 
-    /* =================================================
+    /* ==========================================
        QRIS
-    ================================================= */
+    ========================================== */
 
     let qrisRows =
         document.querySelectorAll(
@@ -1366,9 +1175,9 @@ function copyLaporan() {
     });
 
 
-    /* =================================================
+    /* ==========================================
        REKAP
-    ================================================= */
+    ========================================== */
 
     teks +=
         'REKAP TANGGAL ' +
@@ -1412,23 +1221,15 @@ function copyLaporan() {
     });
 
 
-    /* =================================================
+    /* ==========================================
        BONUS & CASHBACK
-    ================================================= */
-
-    let bonusTable =
-        document.querySelector(
-            '.container > table:last-of-type'
-        );
-
+    ========================================== */
 
     let bonusRows =
-        bonusTable.querySelectorAll(
-            'tbody tr'
+        document.querySelectorAll(
+            '#tabelBonus tbody tr'
         );
 
-
-    /* BONUS HARIAN */
 
     let bonusHarian =
         bonusRows[0]
@@ -1441,8 +1242,6 @@ function copyLaporan() {
         bonusHarian +
         '\n';
 
-
-    /* CASHBACK */
 
     let cashbackKeterangan =
         bonusRows[1]
@@ -1462,9 +1261,9 @@ function copyLaporan() {
         totalCashback;
 
 
-    /* =================================================
-       COPY KE CLIPBOARD
-    ================================================= */
+    /* ==========================================
+       COPY
+    ========================================== */
 
     navigator.clipboard
         .writeText(teks)
@@ -1505,7 +1304,9 @@ function resetLaporan() {
     }
 
 
-    /* HAPUS SEMUA INPUT ANGKA */
+    /* ==========================================
+       HAPUS SEMUA ANGKA
+    ========================================== */
 
     document
         .querySelectorAll('.angka')
@@ -1516,11 +1317,16 @@ function resetLaporan() {
         });
 
 
-    /* PASTIKAN TOTAL TRX KOSONG */
+    /* ==========================================
+       TANGGAL TETAP OTOMATIS
+    ========================================== */
 
-    document
-        .getElementById('totalTrx')
-        .value = '';
+    updateTanggalOtomatis();
+
+
+    /* ==========================================
+       KETERANGAN CASHBACK TIDAK DIHAPUS
+    ========================================== */
 
 
     alert(
@@ -1531,52 +1337,59 @@ function resetLaporan() {
 
 
 /* =====================================================
-   NONAKTIFKAN AUTOFILL
+   MATIKAN AUTOFILL
+===================================================== */
+
+function matikanAutofill() {
+
+    document
+        .querySelectorAll('input')
+        .forEach(input => {
+
+            input.setAttribute(
+                'autocomplete',
+                'off'
+            );
+
+            input.setAttribute(
+                'autocorrect',
+                'off'
+            );
+
+            input.setAttribute(
+                'autocapitalize',
+                'off'
+            );
+
+            input.setAttribute(
+                'spellcheck',
+                'false'
+            );
+
+        });
+
+}
+
+
+/* =====================================================
+   SAAT HALAMAN DIBUKA
 ===================================================== */
 
 document.addEventListener(
     'DOMContentLoaded',
-    function () {
+    function() {
 
-        document
-            .querySelectorAll('input')
-            .forEach(input => {
-
-                input.setAttribute(
-                    'autocomplete',
-                    'off'
-                );
-
-                input.setAttribute(
-                    'autocorrect',
-                    'off'
-                );
-
-                input.setAttribute(
-                    'autocapitalize',
-                    'off'
-                );
-
-                input.setAttribute(
-                    'spellcheck',
-                    'false'
-                );
-
-            });
-
-    }
-);
+        /*
+         * Tanggal otomatis mengikuti
+         * tanggal hari ini.
+         */
+        updateTanggalOtomatis();
 
 
-/* =====================================================
-   KOSONGKAN SEMUA ANGKA SAAT HALAMAN DIBUKA
-   ATAU DI-REFRESH
-===================================================== */
-
-window.addEventListener(
-    'pageshow',
-    function () {
-
+        /*
+         * Semua input angka dikosongkan
+         * saat halaman dibuka.
+         */
         document
             .querySelectorAll('.angka')
             .forEach(input => {
@@ -1586,16 +1399,59 @@ window.addEventListener(
             });
 
 
+        /*
+         * Cegah autofill browser.
+         */
+        matikanAutofill();
+
+    }
+);
+
+
+/* =====================================================
+   SAAT REFRESH / KEMBALI KE HALAMAN
+===================================================== */
+
+window.addEventListener(
+    'pageshow',
+    function() {
+
+        /*
+         * Pastikan tanggal selalu
+         * mengikuti tanggal sekarang.
+         */
+        updateTanggalOtomatis();
+
+
+        /*
+         * Kosongkan semua angka.
+         */
+        document
+            .querySelectorAll('.angka')
+            .forEach(input => {
+
+                input.value = '';
+
+            });
+
+
+        /*
+         * Pastikan TOTAL TRX kosong.
+         */
         document
             .getElementById('totalTrx')
             .value = '';
+
+
+        /*
+         * Matikan autofill lagi.
+         */
+        matikanAutofill();
 
     }
 );
 
 </script>
 
-
 </body>
-
 </html>
