@@ -849,48 +849,64 @@ function copyLaporan() {
 
     let teks = '';
 
-    teks += 'LAPORAN HARIAN\n';
-    teks += '===============================\n\n';
+
+    /* =====================================================
+       AMBIL TANGGAL REKAP DARI TANGGAL PGA
+    ===================================================== */
+
+    let tanggalRekap =
+        document.querySelector('#tabelPGA tbody tr td:nth-child(2) input').value;
 
 
-    /* ================= PGA ================= */
-
-    teks += 'PGA\n';
-    teks += '===============================\n';
+    /* =====================================================
+       PGA
+    ===================================================== */
 
     let pgaRows =
-        document.querySelectorAll(
-            '#tabelPGA tbody tr'
-        );
+        document.querySelectorAll('#tabelPGA tbody tr');
 
 
-    pgaRows.forEach(row => {
+    pgaRows.forEach((row, index) => {
 
-        let cells =
-            row.querySelectorAll('td');
-
+        let cells = row.querySelectorAll('td');
 
         let jenis =
             cells[0].innerText.trim();
 
-
         let tanggal =
             cells[1].querySelector('input').value;
 
-
         let total =
             cells[2].querySelector('input').value;
-
 
         let trx =
             cells[3].querySelector('input').value;
 
 
-        teks +=
-            jenis +
+        teks += jenis +
             ' TANGGAL ' +
             tanggal +
             '\n';
+
+
+        /* Garis berbeda untuk setiap baris */
+
+        if (index === 0) {
+
+            teks +=
+                '===============================\n';
+
+        } else if (index === 1) {
+
+            teks +=
+                '==============================\n';
+
+        } else {
+
+            teks +=
+                '==========================================\n';
+
+        }
 
 
         teks +=
@@ -900,41 +916,33 @@ function copyLaporan() {
 
 
         teks +=
-            'TRX       = ' +
+            'TRX         = ' +
             trx +
-            '\n\n';
+            '\n\n\n';
 
     });
 
 
-    /* ================= QRIS ================= */
-
-    teks += 'QRIS\n';
-    teks += '===============================\n';
+    /* =====================================================
+       QRIS
+    ===================================================== */
 
     let qrisRows =
-        document.querySelectorAll(
-            '#tabelQRIS tbody tr'
-        );
+        document.querySelectorAll('#tabelQRIS tbody tr');
 
 
     qrisRows.forEach(row => {
 
-        let cells =
-            row.querySelectorAll('td');
-
+        let cells = row.querySelectorAll('td');
 
         let jenis =
             cells[0].innerText.trim();
 
-
         let tanggal =
             cells[1].querySelector('input').value;
 
-
         let total =
             cells[2].querySelector('input').value;
-
 
         let trx =
             cells[3].querySelector('input').value;
@@ -944,27 +952,31 @@ function copyLaporan() {
             jenis +
             ' TANGGAL ' +
             tanggal +
-            '\n';
+            '\n\n';
 
 
         teks +=
-            'TOTAL     = ' +
+            'TOTAL : ' +
             total +
             '\n';
 
 
         teks +=
-            'TRX       = ' +
+            'TRX : ' +
             trx +
-            '\n\n';
+            '\n\n\n';
 
     });
 
 
-    /* ================= REKAP ================= */
+    /* =====================================================
+       REKAP
+    ===================================================== */
 
-    teks += 'REKAP\n';
-    teks += '===============================\n';
+    teks +=
+        'REKAP TANGGAL ' +
+        tanggalRekap +
+        '\n\n';
 
 
     let rekapRows =
@@ -978,10 +990,8 @@ function copyLaporan() {
         let cells =
             row.querySelectorAll('td');
 
-
         let nama =
             cells[0].innerText.trim();
-
 
         let input =
             cells[1].querySelector('input');
@@ -1000,54 +1010,68 @@ function copyLaporan() {
     });
 
 
-    /* ================= BONUS ================= */
+    /* =====================================================
+       BONUS & CASHBACK
+    ===================================================== */
 
-    teks += '\n';
-    teks += 'BONUS & CASHBACK\n';
-    teks += '===============================\n';
-
-
-    let bonusRows =
-        document.querySelectorAll(
-            '.container > table:last-of-type tbody tr'
+    let bonusTable =
+        document.querySelector(
+            '.container > table:last-of-type'
         );
 
 
-    bonusRows.forEach(row => {
-
-        let cells =
-            row.querySelectorAll('td');
+    let bonusRows =
+        bonusTable.querySelectorAll('tbody tr');
 
 
-        let nama =
-            cells[0].innerText.trim();
+    /* BONUS HARIAN */
+
+    let bonusHarian =
+        bonusRows[0]
+        .querySelector('input')
+        .value;
 
 
-        let input =
-            cells[1].querySelector('input');
+    teks +=
+        '\nBONUS HARIAN : Rp ' +
+        bonusHarian +
+        '\n';
 
 
-        if (input) {
+    /* CASHBACK */
 
-            teks +=
-                nama +
-                ' : ' +
-                input.value +
-                '\n';
-
-        }
-
-    });
+    let cashbackKeterangan =
+        bonusRows[1]
+        .querySelector('input')
+        .value;
 
 
-    /* ================= COPY ================= */
+    let totalCashback =
+        bonusRows[2]
+        .querySelector('input')
+        .value;
+
+
+    teks +=
+        cashbackKeterangan +
+        ' Rp ' +
+        totalCashback;
+
+
+    /* =====================================================
+       COPY
+    ===================================================== */
 
     navigator.clipboard.writeText(teks)
+
         .then(() => {
 
-            alert('Laporan berhasil di-copy!');
+            alert(
+                'Laporan berhasil di-copy!'
+            );
 
         })
+
         .catch(() => {
 
             alert(
@@ -1059,21 +1083,50 @@ function copyLaporan() {
 }
 
 
+
 /* =====================================================
    RESET
 ===================================================== */
 
 function resetLaporan() {
 
-    if (
-        confirm(
-            'Yakin ingin mengembalikan semua data awal?'
-        )
-    ) {
-
-        location.reload();
-
+    if (!confirm('Yakin ingin menghapus semua data angka?')) {
+        return;
     }
+
+
+    /* ==========================================
+       HAPUS SEMUA ANGKA
+    ========================================== */
+
+    document.querySelectorAll('.angka').forEach(input => {
+
+        /* TOTAL TRX juga dikosongkan */
+        input.value = '';
+
+    });
+
+
+    /* ==========================================
+       HAPUS TANGGAL
+       Jika tanggal juga ingin dikosongkan
+    ========================================== */
+
+    /*
+    document.querySelectorAll(
+        '#tabelPGA td:nth-child(2) input, #tabelQRIS td:nth-child(2) input'
+    ).forEach(input => {
+        input.value = '';
+    });
+    */
+
+
+    /* ==========================================
+       KETERANGAN CASHBACK TETAP ADA
+    ========================================== */
+
+
+    alert('Semua data angka berhasil dihapus!');
 
 }
 
