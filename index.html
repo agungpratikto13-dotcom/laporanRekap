@@ -6,129 +6,132 @@
 <title>Laporan Harian</title>
 
 <style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f4f7;
+    margin: 0;
+    padding: 20px;
+    color: #222;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.10);
+}
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+h2 {
+    background: #222;
+    color: white;
+    padding: 11px;
+    font-size: 17px;
+    border-radius: 6px;
+    margin-top: 25px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th {
+    background: #e9ecef;
+    font-weight: bold;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+td input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+}
+
+td input:focus {
+    background: #fff8dc;
+}
+
+.angka {
+    text-align: right;
+}
+
+.otomatis {
+    background: #eef7ee;
+    font-weight: bold;
+    color: #198754;
+}
+
+.total-trx {
+    background: #b7e4c7;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+button {
+    border: none;
+    padding: 12px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.copy {
+    background: #198754;
+    color: white;
+}
+
+.reset {
+    background: #dc3545;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+@media(max-width:600px) {
     body {
-        font-family: Arial, sans-serif;
-        background: #f2f4f7;
-        margin: 0;
-        padding: 20px;
-        color: #222;
+        padding: 8px;
     }
 
     .container {
-        max-width: 1000px;
-        margin: auto;
-        background: white;
-        padding: 25px;
-        border-radius: 12px;
-        box-shadow: 0 3px 15px rgba(0,0,0,0.10);
-    }
-
-    h1 {
-        text-align: center;
-        margin-bottom: 25px;
-        font-size: 24px;
-    }
-
-    h2 {
-        background: #222;
-        color: white;
-        padding: 10px;
-        font-size: 17px;
-        border-radius: 6px;
-        margin-top: 25px;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 10px;
-    }
-
-    th {
-        background: #e9ecef;
-        font-weight: bold;
+        padding: 12px;
     }
 
     th, td {
-        border: 1px solid #ccc;
-        padding: 10px;
+        padding: 7px;
+        font-size: 12px;
     }
 
     td input {
-        width: 100%;
-        box-sizing: border-box;
-        border: none;
-        outline: none;
-        font-size: 14px;
-        background: transparent;
+        font-size: 12px;
     }
-
-    td input:focus {
-        background: #fff8dc;
-    }
-
-    .angka {
-        text-align: right;
-    }
-
-    .rekap-total {
-        background: #b7e4c7;
-        font-weight: bold;
-        font-size: 16px;
-    }
-
-    .otomatis {
-        background: #eef7ee;
-        font-weight: bold;
-        color: #198754;
-    }
-
-    .buttons {
-        display: flex;
-        gap: 10px;
-        margin-top: 25px;
-        flex-wrap: wrap;
-    }
-
-    button {
-        border: none;
-        padding: 12px 18px;
-        border-radius: 6px;
-        cursor: pointer;
-        font-weight: bold;
-    }
-
-    .copy {
-        background: #198754;
-        color: white;
-    }
-
-    .reset {
-        background: #dc3545;
-        color: white;
-    }
-
-    button:hover {
-        opacity: 0.85;
-    }
-
-    @media(max-width:600px) {
-        body {
-            padding: 8px;
-        }
-
-        .container {
-            padding: 12px;
-        }
-
-        table {
-            font-size: 12px;
-        }
-
-        th, td {
-            padding: 6px;
-        }
-    }
+}
 </style>
 </head>
 
@@ -138,281 +141,329 @@
 
 <h1>LAPORAN HARIAN</h1>
 
-<h2>TRANSAKSI PGA & QRIS</h2>
 
-<table id="transaksi">
-    <thead>
-        <tr>
-            <th>JENIS</th>
-            <th>TANGGAL</th>
-            <th>TOTAL</th>
-            <th>TRX</th>
-        </tr>
-    </thead>
+<!-- =====================================================
+     TABEL 1 : PGA
+===================================================== -->
 
-    <tbody>
+<h2>PGA</h2>
 
-        <tr>
-            <td>DEPO PGA</td>
+<table id="tabelPGA">
 
-            <td>
-                <input value="27 AGUSTUS 2026">
-            </td>
+<thead>
+<tr>
+    <th>JENIS</th>
+    <th>TANGGAL</th>
+    <th>TOTAL</th>
+    <th>TRX</th>
+</tr>
+</thead>
 
-            <td>
-                <input class="angka uang"
-                       value="897304127"
-                       oninput="formatInput(this); hitungRekap()">
-            </td>
+<tbody>
 
-            <td>
-                <input class="angka trx transaksi-trx depo-trx"
-                       value="8661"
-                       oninput="formatInput(this); hitungRekap()">
-            </td>
-        </tr>
+<tr>
+    <td>DEPO PGA</td>
 
+    <td>
+        <input value="27 AGUSTUS 2026">
+    </td>
 
-        <tr>
-            <td>WD PGA</td>
+    <td>
+        <input class="angka"
+               value="897304127"
+               oninput="formatAngka(this)">
+    </td>
 
-            <td>
-                <input value="27 AGUSTUS 2026">
-            </td>
-
-            <td>
-                <input class="angka uang"
-                       value="295900000"
-                       oninput="formatInput(this); hitungRekap()">
-            </td>
-
-            <td>
-                <input class="angka trx transaksi-trx wd-trx"
-                       value="63"
-                       oninput="formatInput(this); hitungRekap()">
-            </td>
-        </tr>
+    <td>
+        <input class="angka"
+               value="8661"
+               oninput="formatAngka(this)">
+    </td>
+</tr>
 
 
-        <tr>
-            <td>PENCAIRAN DANA PGA</td>
+<tr>
+    <td>WD PGA</td>
 
-            <td>
-                <input value="27 AGUSTUS 2026">
-            </td>
+    <td>
+        <input value="27 AGUSTUS 2026">
+    </td>
 
-            <td>
-                <input class="angka uang"
-                       value="550000000"
-                       oninput="formatInput(this)">
-            </td>
+    <td>
+        <input class="angka"
+               value="295900000"
+               oninput="formatAngka(this)">
+    </td>
 
-            <td>
-                <input class="angka trx"
-                       value="22"
-                       oninput="formatInput(this)">
-            </td>
-        </tr>
-
-
-        <tr>
-            <td>DEPO QRIS PAYDIA (PRN)</td>
-
-            <td>
-                <input value="26 AGUSTUS 2026">
-            </td>
-
-            <td>
-                <input class="angka uang"
-                       value="1412498440"
-                       oninput="formatInput(this)">
-            </td>
-
-            <td>
-                <input class="angka trx"
-                       value="25052"
-                       oninput="formatInput(this)">
-            </td>
-        </tr>
+    <td>
+        <input class="angka"
+               value="63"
+               oninput="formatAngka(this)">
+    </td>
+</tr>
 
 
-        <tr>
-            <td>DEPO QRIS NETZME</td>
+<tr>
+    <td>PENCAIRAN DANA PGA</td>
 
-            <td>
-                <input value="26 AGUSTUS 2026">
-            </td>
+    <td>
+        <input value="27 AGUSTUS 2026">
+    </td>
 
-            <td>
-                <input class="angka uang"
-                       value="114271189"
-                       oninput="formatInput(this)">
-            </td>
+    <td>
+        <input class="angka"
+               value="550000000"
+               oninput="formatAngka(this)">
+    </td>
 
-            <td>
-                <input class="angka trx"
-                       value="2084"
-                       oninput="formatInput(this)">
-            </td>
-        </tr>
+    <td>
+        <input class="angka"
+               value="22"
+               oninput="formatAngka(this)">
+    </td>
+</tr>
 
-    </tbody>
+</tbody>
 </table>
 
+
+<!-- =====================================================
+     TABEL 2 : QRIS
+===================================================== -->
+
+<h2>QRIS</h2>
+
+<table id="tabelQRIS">
+
+<thead>
+<tr>
+    <th>JENIS</th>
+    <th>TANGGAL</th>
+    <th>TOTAL</th>
+    <th>TRX</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+    <td>DEPO QRIS PAYDIA (PRN)</td>
+
+    <td>
+        <input value="26 AGUSTUS 2026">
+    </td>
+
+    <td>
+        <input class="angka"
+               value="1412498440"
+               oninput="formatAngka(this)">
+    </td>
+
+    <td>
+        <input class="angka"
+               value="25052"
+               oninput="formatAngka(this)">
+    </td>
+</tr>
+
+
+<tr>
+    <td>DEPO QRIS NETZME</td>
+
+    <td>
+        <input value="26 AGUSTUS 2026">
+    </td>
+
+    <td>
+        <input class="angka"
+               value="114271189"
+               oninput="formatAngka(this)">
+    </td>
+
+    <td>
+        <input class="angka"
+               value="2084"
+               oninput="formatAngka(this)">
+    </td>
+</tr>
+
+</tbody>
+</table>
+
+
+<!-- =====================================================
+     TABEL 3 : REKAP
+===================================================== -->
 
 <h2>REKAP</h2>
 
-<table>
+<table id="tabelRekap">
 
-    <tbody>
+<tbody>
 
-        <tr>
-            <td>MEMBER AKTIF</td>
-            <td>
-                <input class="angka"
-                       value="23842"
-                       oninput="formatInput(this)">
-            </td>
-        </tr>
+<tr>
+    <td>MEMBER AKTIF</td>
 
-
-        <tr>
-            <td>TURNOVER</td>
-            <td>
-                <input class="angka uang"
-                       value="15003387115"
-                       oninput="formatInput(this)">
-            </td>
-        </tr>
+    <td>
+        <input class="angka"
+               value="23842"
+               oninput="formatAngka(this)">
+    </td>
+</tr>
 
 
-        <tr>
-            <td>REPORT DEPO</td>
-            <td>
-                <input class="angka uang"
-                       value="2621550933"
-                       oninput="formatInput(this)">
-            </td>
-        </tr>
+<tr>
+    <td>TURNOVER</td>
+
+    <td>
+        <input class="angka"
+               value="15003387115"
+               oninput="formatAngka(this)">
+    </td>
+</tr>
 
 
-        <tr>
-            <td>REPORT WD</td>
-            <td>
-                <input class="angka uang"
-                       value="2104663396"
-                       oninput="formatInput(this)">
-            </td>
-        </tr>
+<tr>
+    <td>REPORT DEPO</td>
+
+    <td>
+        <input class="angka"
+               value="2621550933"
+               oninput="formatAngka(this)">
+    </td>
+</tr>
 
 
-        <tr>
-            <td>REGIS</td>
-            <td>
-                <input class="angka"
-                       value="884"
-                       oninput="formatInput(this)">
-            </td>
-        </tr>
+<tr>
+    <td>REPORT WD</td>
+
+    <td>
+        <input class="angka"
+               value="2104663396"
+               oninput="formatAngka(this)">
+    </td>
+</tr>
 
 
-        <tr>
-            <td>REG DEPO</td>
-            <td>
-                <input class="angka"
-                       value="683"
-                       oninput="formatInput(this)">
-            </td>
-        </tr>
+<tr>
+    <td>REGIS</td>
+
+    <td>
+        <input class="angka"
+               value="884"
+               oninput="formatAngka(this)">
+    </td>
+</tr>
 
 
-        <!-- OTOMATIS DARI TABEL TRANSAKSI -->
+<tr>
+    <td>REG DEPO</td>
 
-        <tr class="otomatis">
-            <td>TRX DEPO</td>
-            <td>
-                <input id="trxDepo"
-                       class="angka"
-                       value="0"
-                       readonly>
-            </td>
-        </tr>
+    <td>
+        <input class="angka"
+               value="683"
+               oninput="formatAngka(this)">
+    </td>
+</tr>
 
 
-        <tr class="otomatis">
-            <td>TRX WD</td>
-            <td>
-                <input id="trxWd"
-                       class="angka"
-                       value="0"
-                       readonly>
-            </td>
-        </tr>
+<tr>
+    <td>TRX DEPO</td>
+
+    <td>
+        <input id="trxDepo"
+               class="angka"
+               value="39049"
+               oninput="hitungTotalTrx()">
+    </td>
+</tr>
 
 
-        <tr class="rekap-total">
-            <td>TOTAL TRX</td>
-            <td>
-                <input id="totalTrx"
-                       class="angka"
-                       value="0"
-                       readonly>
-            </td>
-        </tr>
+<tr>
+    <td>TRX WD</td>
 
-    </tbody>
+    <td>
+        <input id="trxWd"
+               class="angka"
+               value="6596"
+               oninput="hitungTotalTrx()">
+    </td>
+</tr>
+
+
+<tr class="total-trx">
+    <td>TOTAL TRX</td>
+
+    <td>
+        <input id="totalTrx"
+               class="angka"
+               value="45645"
+               readonly>
+    </td>
+</tr>
+
+</tbody>
 </table>
 
+
+<!-- =====================================================
+     BONUS & CASHBACK
+===================================================== -->
 
 <h2>BONUS & CASHBACK</h2>
 
 <table>
 
-    <tbody>
+<tbody>
 
-        <tr>
-            <td>BONUS HARIAN</td>
+<tr>
+    <td>BONUS HARIAN</td>
 
-            <td>
-                <input class="angka uang"
-                       value="1563400"
-                       oninput="formatInput(this)">
-            </td>
-        </tr>
-
-
-        <tr>
-            <td>CASHBACK LIVE GAME</td>
-
-            <td>
-                <input value="17 AGUSTUS 2026 s/d 23 AGUSTUS 2026">
-            </td>
-        </tr>
+    <td>
+        <input class="angka"
+               value="1563400"
+               oninput="formatAngka(this)">
+    </td>
+</tr>
 
 
-        <tr>
-            <td>TOTAL CASHBACK</td>
+<tr>
+    <td>CASHBACK LIVE GAME</td>
 
-            <td>
-                <input class="angka uang"
-                       value="16543103"
-                       oninput="formatInput(this)">
-            </td>
-        </tr>
+    <td>
+        <input value="17 AGUSTUS 2026 s/d 23 AGUSTUS 2026">
+    </td>
+</tr>
 
-    </tbody>
+
+<tr>
+    <td>TOTAL CASHBACK</td>
+
+    <td>
+        <input class="angka"
+               value="16543103"
+               oninput="formatAngka(this)">
+    </td>
+</tr>
+
+</tbody>
+
 </table>
 
 
+<!-- =====================================================
+     TOMBOL
+===================================================== -->
+
 <div class="buttons">
 
-    <button class="copy" onclick="copyLaporan()">
-        📋 COPY LAPORAN
-    </button>
+<button class="copy" onclick="copyLaporan()">
+    📋 COPY LAPORAN
+</button>
 
-    <button class="reset" onclick="resetLaporan()">
-        🔄 RESET
-    </button>
+<button class="reset" onclick="resetLaporan()">
+    🔄 RESET
+</button>
 
 </div>
 
@@ -421,9 +472,9 @@
 
 <script>
 
-/* =========================
-   FORMAT ANGKA
-========================= */
+/* =====================================================
+   MEMBERSIHKAN ANGKA
+===================================================== */
 
 function angkaBersih(value) {
 
@@ -434,7 +485,11 @@ function angkaBersih(value) {
 }
 
 
-function formatInput(input) {
+/* =====================================================
+   FORMAT ANGKA DENGAN KOMA
+===================================================== */
+
+function formatAngka(input) {
 
     let value = angkaBersih(input.value);
 
@@ -446,55 +501,33 @@ function formatInput(input) {
 
     }
 
-    input.value = Number(value).toLocaleString('en-US');
+    input.value =
+        Number(value).toLocaleString('en-US');
 
 }
 
 
-/* =========================
-   HITUNG REKAP TRX OTOMATIS
-========================= */
+/* =====================================================
+   HITUNG TOTAL TRX
+===================================================== */
 
-function hitungRekap() {
+function hitungTotalTrx() {
 
-    let depo = 0;
-
-    let wd = 0;
-
-
-    /* Ambil semua TRX yang termasuk DEPO */
-
-    document.querySelectorAll('.depo-trx').forEach(input => {
-
-        depo += Number(
-            angkaBersih(input.value) || 0
+    let depo =
+        angkaBersih(
+            document.getElementById('trxDepo').value
         );
 
-    });
-
-
-    /* Ambil semua TRX yang termasuk WD */
-
-    document.querySelectorAll('.wd-trx').forEach(input => {
-
-        wd += Number(
-            angkaBersih(input.value) || 0
+    let wd =
+        angkaBersih(
+            document.getElementById('trxWd').value
         );
 
-    });
 
+    depo = Number(depo || 0);
 
-    /* Tampilkan hasil */
+    wd = Number(wd || 0);
 
-    document.getElementById('trxDepo').value =
-        depo.toLocaleString('en-US');
-
-
-    document.getElementById('trxWd').value =
-        wd.toLocaleString('en-US');
-
-
-    /* TOTAL TRX */
 
     let total = depo + wd;
 
@@ -505,9 +538,9 @@ function hitungRekap() {
 }
 
 
-/* =========================
+/* =====================================================
    COPY LAPORAN
-========================= */
+===================================================== */
 
 function copyLaporan() {
 
@@ -517,40 +550,37 @@ function copyLaporan() {
     teks += '===============================\n\n';
 
 
-    /* TRANSAKSI */
+    /* ================= PGA ================= */
 
-    let rows =
+    teks += 'PGA\n';
+    teks += '===============================\n';
+
+    let pgaRows =
         document.querySelectorAll(
-            '#transaksi tbody tr'
+            '#tabelPGA tbody tr'
         );
 
 
-    rows.forEach(row => {
+    pgaRows.forEach(row => {
 
-        let kolom =
+        let cells =
             row.querySelectorAll('td');
 
 
         let jenis =
-            kolom[0].innerText.trim();
+            cells[0].innerText.trim();
 
 
         let tanggal =
-            kolom[1]
-            .querySelector('input')
-            .value;
+            cells[1].querySelector('input').value;
 
 
         let total =
-            kolom[2]
-            .querySelector('input')
-            .value;
+            cells[2].querySelector('input').value;
 
 
         let trx =
-            kolom[3]
-            .querySelector('input')
-            .value;
+            cells[3].querySelector('input').value;
 
 
         teks +=
@@ -574,45 +604,84 @@ function copyLaporan() {
     });
 
 
-    /* REKAP */
+    /* ================= QRIS ================= */
 
-    teks +=
-        'REKAP TANGGAL ' +
-        ambilTanggalRekap() +
-        '\n';
+    teks += 'QRIS\n';
+    teks += '===============================\n';
 
-
-    teks +=
-        '===============================\n';
-
-
-    let tabelRekap =
+    let qrisRows =
         document.querySelectorAll(
-            '.container table'
-        )[1];
-
-
-    let rowsRekap =
-        tabelRekap.querySelectorAll(
-            'tbody tr'
+            '#tabelQRIS tbody tr'
         );
 
 
-    rowsRekap.forEach(row => {
+    qrisRows.forEach(row => {
 
-        let kolom =
+        let cells =
             row.querySelectorAll('td');
 
 
-        if (kolom.length < 2) return;
+        let jenis =
+            cells[0].innerText.trim();
+
+
+        let tanggal =
+            cells[1].querySelector('input').value;
+
+
+        let total =
+            cells[2].querySelector('input').value;
+
+
+        let trx =
+            cells[3].querySelector('input').value;
+
+
+        teks +=
+            jenis +
+            ' TANGGAL ' +
+            tanggal +
+            '\n';
+
+
+        teks +=
+            'TOTAL     = ' +
+            total +
+            '\n';
+
+
+        teks +=
+            'TRX       = ' +
+            trx +
+            '\n\n';
+
+    });
+
+
+    /* ================= REKAP ================= */
+
+    teks += 'REKAP\n';
+    teks += '===============================\n';
+
+
+    let rekapRows =
+        document.querySelectorAll(
+            '#tabelRekap tbody tr'
+        );
+
+
+    rekapRows.forEach(row => {
+
+        let cells =
+            row.querySelectorAll('td');
 
 
         let nama =
-            kolom[0].innerText.trim();
+            cells[0].innerText.trim();
 
 
         let input =
-            kolom[1].querySelector('input');
+            cells[1].querySelector('input');
 
 
         if (input) {
@@ -628,46 +697,31 @@ function copyLaporan() {
     });
 
 
-    /* BONUS & CASHBACK */
+    /* ================= BONUS ================= */
 
     teks += '\n';
+    teks += 'BONUS & CASHBACK\n';
+    teks += '===============================\n';
 
 
-    teks +=
-        'BONUS & CASHBACK\n';
-
-
-    teks +=
-        '===============================\n';
-
-
-    let tabelBonus =
+    let bonusRows =
         document.querySelectorAll(
-            '.container table'
-        )[2];
-
-
-    let rowsBonus =
-        tabelBonus.querySelectorAll(
-            'tbody tr'
+            '.container > table:last-of-type tbody tr'
         );
 
 
-    rowsBonus.forEach(row => {
+    bonusRows.forEach(row => {
 
-        let kolom =
+        let cells =
             row.querySelectorAll('td');
 
 
-        if (kolom.length < 2) return;
-
-
         let nama =
-            kolom[0].innerText.trim();
+            cells[0].innerText.trim();
 
 
         let input =
-            kolom[1].querySelector('input');
+            cells[1].querySelector('input');
 
 
         if (input) {
@@ -683,20 +737,18 @@ function copyLaporan() {
     });
 
 
-    /* COPY */
+    /* ================= COPY ================= */
 
     navigator.clipboard.writeText(teks)
         .then(() => {
 
-            alert(
-                'Laporan berhasil di-copy!'
-            );
+            alert('Laporan berhasil di-copy!');
 
         })
         .catch(() => {
 
             alert(
-                'Gagal melakukan copy. Silakan izinkan akses clipboard.'
+                'Tidak bisa copy otomatis. Silakan copy secara manual.'
             );
 
         });
@@ -704,39 +756,15 @@ function copyLaporan() {
 }
 
 
-/* =========================
-   AMBIL TANGGAL REKAP
-========================= */
-
-function ambilTanggalRekap() {
-
-    let input =
-        document.querySelector(
-            '#transaksi tbody tr td:nth-child(2) input'
-        );
-
-
-    if (input) {
-
-        return input.value;
-
-    }
-
-
-    return '';
-
-}
-
-
-/* =========================
+/* =====================================================
    RESET
-========================= */
+===================================================== */
 
 function resetLaporan() {
 
     if (
         confirm(
-            'Yakin ingin mengembalikan data awal?'
+            'Yakin ingin mengembalikan semua data awal?'
         )
     ) {
 
@@ -747,9 +775,9 @@ function resetLaporan() {
 }
 
 
-/* =========================
-   FORMAT AWAL
-========================= */
+/* =====================================================
+   FORMAT ANGKA SAAT HALAMAN DIBUKA
+===================================================== */
 
 document
     .querySelectorAll('.angka')
@@ -774,9 +802,9 @@ document
     });
 
 
-/* Hitung pertama kali */
+/* HITUNG TOTAL TRX SAAT PERTAMA DIBUKA */
 
-hitungRekap();
+hitungTotalTrx();
 
 </script>
 
