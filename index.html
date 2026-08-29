@@ -382,6 +382,146 @@ button {
     border-radius: 10px;
 }
 
+   /* ================================
+   RINCIAN TRX
+================================ */
+
+#tabelRekap {
+    table-layout: fixed;
+}
+
+#tabelRekap th:nth-child(1) {
+    width: 31%;
+}
+
+#tabelRekap th:nth-child(2) {
+    width: 32%;
+}
+
+#tabelRekap th:nth-child(3) {
+    width: 37%;
+}
+
+.rincian-cell {
+    vertical-align: top;
+    padding: 10px;
+    background: rgba(15, 23, 42, 0.65);
+}
+
+.rincian-box {
+    padding: 10px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(30, 41, 59, 0.55);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+}
+
+.wd-box {
+    margin-top: 12px;
+}
+
+.rincian-title {
+    margin-bottom: 8px;
+
+    padding: 7px 9px;
+
+    border-radius: 7px;
+
+    color: #bfdbfe;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37, 99, 235, 0.45),
+            rgba(124, 58, 237, 0.45)
+        );
+}
+
+.rincian-row {
+    display: grid;
+
+    grid-template-columns:
+        90px 1fr;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 6px;
+}
+
+.rincian-row span {
+    color: #cbd5e1;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+.rincian-input {
+    width: 100% !important;
+
+    padding: 6px 8px !important;
+
+    text-align: right;
+
+    border-radius: 6px !important;
+
+    background:
+        rgba(15, 23, 42, 0.75) !important;
+}
+
+.rincian-total {
+    display: grid;
+
+    grid-template-columns:
+        90px 1fr;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 9px;
+
+    padding-top: 8px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.10);
+}
+
+.rincian-total span {
+    color: #86efac;
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+.rincian-total input {
+    color: #86efac;
+
+    font-weight: 800;
+
+    text-align: right;
+}
+
+
+/* Nilai TRX DEPO & WD otomatis */
+
+#trxDepo,
+#trxWd {
+    color: #86efac;
+    font-weight: 700;
+}
+ 
 
 /* ================================
    MOBILE
@@ -645,11 +785,18 @@ button {
 
 <table id="tabelRekap">
 
+<thead>
+<tr>
+    <th>REKAP</th>
+    <th>NILAI</th>
+    <th>RINCIAN TRX</th>
+</tr>
+</thead>
+
 <tbody>
 
 <tr>
     <td>MEMBER AKTIF</td>
-
     <td>
         <input
             class="angka"
@@ -657,12 +804,158 @@ button {
             value=""
             oninput="formatAngka(this)">
     </td>
+
+    <td rowspan="6" class="rincian-cell">
+
+        <div class="rincian-box">
+
+            <div class="rincian-title">
+                TRX DEPO
+            </div>
+
+            <div class="rincian-row">
+                <span>BCA</span>
+                <input
+                    id="depoBca"
+                    class="angka rincian-input"
+                    value=""
+                    oninput="hitungRincian()">
+            </div>
+
+            <div class="rincian-row">
+                <span>BRI</span>
+                <input
+                    id="depoBri"
+                    class="angka rincian-input"
+                    value=""
+                    oninput="hitungRincian()">
+            </div>
+
+            <div class="rincian-row">
+                <span>Vansond</span>
+                <input
+                    id="depoVansond"
+                    class="angka rincian-input"
+                    value=""
+                    oninput="hitungRincian()">
+            </div>
+
+            <div class="rincian-row">
+                <span>QRIS</span>
+                <input
+                    id="depoQris"
+                    class="angka rincian-input"
+                    value=""
+                    oninput="hitungRincian()">
+            </div>
+
+            <div class="rincian-row">
+                <span>PGA</span>
+                <input
+                    id="depoPga"
+                    class="angka rincian-input"
+                    value=""
+                    oninput="hitungRincian()">
+            </div>
+
+            <div class="rincian-row">
+                <span>Tampungan</span>
+                <input
+                    id="depoTampungan"
+                    class="angka rincian-input"
+                    value=""
+                    oninput="hitungRincian()">
+            </div>
+
+            <div class="rincian-total">
+                <span>TOTAL</span>
+                <input
+                    id="totalDepo"
+                    class="angka"
+                    value=""
+                    readonly>
+            </div>
+
+        </div>
+
+
+        <div class="rincian-box wd-box">
+
+            <div class="rincian-title">
+                TRX WD
+            </div>
+
+            <div class="rincian-row">
+                <span>BCA</span>
+                <input
+                    id="wdBca"
+                    class="angka rincian-input"
+                    value=""
+                    oninput="hitungRincian()">
+            </div>
+
+            <div class="rincian-row">
+                <span>Ewallet</span>
+                <input
+                    id="wdEwallet"
+                    class="angka rincian-input"
+                    value=""
+                    oninput="hitungRincian()">
+            </div>
+
+            <div class="rincian-row">
+                <span>Excell</span>
+                <input
+                    id="wdExcell"
+                    class="angka rincian-input"
+                    value=""
+                    oninput="hitungRincian()">
+            </div>
+
+            <div class="rincian-row">
+                <span>Excell +</span>
+                <input
+                    id="wdExcellPlus"
+                    class="angka rincian-input"
+                    value=""
+                    oninput="hitungRincian()">
+            </div>
+
+            <div class="rincian-row">
+                <span>PGA</span>
+                <input
+                    id="wdPga"
+                    class="angka rincian-input"
+                    value=""
+                    oninput="hitungRincian()">
+            </div>
+
+            <div class="rincian-row">
+                <span>Tampungan</span>
+                <input
+                    id="wdTampungan"
+                    class="angka rincian-input"
+                    value=""
+                    oninput="hitungRincian()">
+            </div>
+
+            <div class="rincian-total">
+                <span>TOTAL</span>
+                <input
+                    id="totalWd"
+                    class="angka"
+                    value=""
+                    readonly>
+            </div>
+
+        </div>
+
+    </td>
 </tr>
 
 
 <tr>
     <td>TURNOVER</td>
-
     <td>
         <input
             class="angka"
@@ -675,7 +968,6 @@ button {
 
 <tr>
     <td>REPORT DEPO</td>
-
     <td>
         <input
             class="angka"
@@ -688,7 +980,6 @@ button {
 
 <tr>
     <td>REPORT WD</td>
-
     <td>
         <input
             class="angka"
@@ -701,7 +992,6 @@ button {
 
 <tr>
     <td>REGIS</td>
-
     <td>
         <input
             class="angka"
@@ -714,7 +1004,6 @@ button {
 
 <tr>
     <td>REG DEPO</td>
-
     <td>
         <input
             class="angka"
@@ -727,36 +1016,30 @@ button {
 
 <tr>
     <td>TRX DEPO</td>
-
     <td>
         <input
             id="trxDepo"
             class="angka"
-            autocomplete="off"
             value=""
-            oninput="hitungTotalTrx()">
+            readonly>
     </td>
 </tr>
 
 
 <tr>
     <td>TRX WD</td>
-
     <td>
         <input
             id="trxWd"
             class="angka"
-            autocomplete="off"
             value=""
-            oninput="hitungTotalTrx()">
+            readonly>
     </td>
 </tr>
 
 
 <tr class="total-trx">
-
     <td>TOTAL TRX</td>
-
     <td>
         <input
             id="totalTrx"
@@ -764,12 +1047,12 @@ button {
             value=""
             readonly>
     </td>
-
 </tr>
 
 </tbody>
 
 </table>
+
 
 
 <!-- =====================================================
@@ -805,11 +1088,12 @@ button {
         <input
             type="text"
             autocomplete="off"
-            value="Cashback Live Game periode 17 AGUSTUS 2026 s/d 23 AGUSTUS 2026"
+            value=""
             placeholder="Tulis keterangan cashback...">
     </td>
 
 </tr>
+
 
 
 <tr>
@@ -971,42 +1255,136 @@ function formatAngka(input) {
    HITUNG TOTAL TRX
 ===================================================== */
 
-function hitungTotalTrx() {
+function hitungRincian() {
 
-    let depo =
-        angkaBersih(
-            document
-                .getElementById('trxDepo')
-                .value
+    function ambil(id) {
+
+        const input =
+            document.getElementById(id);
+
+        return Number(
+            angkaBersih(input.value) || 0
         );
 
-
-    let wd =
-        angkaBersih(
-            document
-                .getElementById('trxWd')
-                .value
-        );
+    }
 
 
-    depo =
-        Number(depo || 0);
+    /* ================================
+       TRX DEPO
+    ================================ */
 
-    wd =
-        Number(wd || 0);
+    const depoBca =
+        ambil('depoBca');
+
+    const depoBri =
+        ambil('depoBri');
+
+    const depoVansond =
+        ambil('depoVansond');
+
+    const depoQris =
+        ambil('depoQris');
+
+    const depoPga =
+        ambil('depoPga');
+
+    const depoTampungan =
+        ambil('depoTampungan');
 
 
-    let total =
-        depo + wd;
+    const totalDepo =
+        depoBca +
+        depoBri +
+        depoVansond +
+        depoQris +
+        depoPga +
+        depoTampungan;
 
 
-    document
-        .getElementById('totalTrx')
-        .value =
-            total === 0
-                ? ''
-                : total.toLocaleString('en-US');
+    /* ================================
+       TRX WD
+    ================================ */
 
+    const wdBca =
+        ambil('wdBca');
+
+    const wdEwallet =
+        ambil('wdEwallet');
+
+    const wdExcell =
+        ambil('wdExcell');
+
+    const wdExcellPlus =
+        ambil('wdExcellPlus');
+
+    const wdPga =
+        ambil('wdPga');
+
+    const wdTampungan =
+        ambil('wdTampungan');
+
+
+    const totalWd =
+        wdBca +
+        wdEwallet +
+        wdExcell +
+        wdExcellPlus +
+        wdPga +
+        wdTampungan;
+
+
+    /* ================================
+       TAMPILKAN TOTAL DEPO
+    ================================ */
+
+    document.getElementById('totalDepo').value =
+        totalDepo === 0
+            ? ''
+            : totalDepo.toLocaleString('en-US');
+
+
+    /* ================================
+       TAMPILKAN TOTAL WD
+    ================================ */
+
+    document.getElementById('totalWd').value =
+        totalWd === 0
+            ? ''
+            : totalWd.toLocaleString('en-US');
+
+
+    /* ================================
+       TRX DEPO UTAMA
+    ================================ */
+
+    document.getElementById('trxDepo').value =
+        totalDepo === 0
+            ? ''
+            : totalDepo.toLocaleString('en-US');
+
+
+    /* ================================
+       TRX WD UTAMA
+    ================================ */
+
+    document.getElementById('trxWd').value =
+        totalWd === 0
+            ? ''
+            : totalWd.toLocaleString('en-US');
+
+
+    /* ================================
+       TOTAL SEMUA TRX
+    ================================ */
+
+    const total =
+        totalDepo + totalWd;
+
+
+    document.getElementById('totalTrx').value =
+        total === 0
+            ? ''
+            : total.toLocaleString('en-US');
 }
 
 
@@ -1404,6 +1782,8 @@ document.addEventListener(
          */
         matikanAutofill();
 
+        hitungRincian();
+
     }
 );
 
@@ -1416,16 +1796,8 @@ window.addEventListener(
     'pageshow',
     function() {
 
-        /*
-         * Pastikan tanggal selalu
-         * mengikuti tanggal sekarang.
-         */
         updateTanggalOtomatis();
 
-
-        /*
-         * Kosongkan semua angka.
-         */
         document
             .querySelectorAll('.angka')
             .forEach(input => {
@@ -1434,22 +1806,15 @@ window.addEventListener(
 
             });
 
-
-        /*
-         * Pastikan TOTAL TRX kosong.
-         */
         document
             .getElementById('totalTrx')
             .value = '';
 
-
-        /*
-         * Matikan autofill lagi.
-         */
         matikanAutofill();
 
     }
 );
+
 
 </script>
 
